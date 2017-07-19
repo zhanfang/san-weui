@@ -1,0 +1,51 @@
+<template>
+<div>
+    <page class="footer" title="Footer" subTitle="页脚">
+        <footer>
+            <footer-text>{{copyright}}</footer-text>
+        </footer>
+        <br/><br/>
+        <footer>
+            <footer-link href="/">Link</footer-link>
+            <footer-text>{{copyright}}</footer-text>
+        </footer>
+        <br/><br/>
+        <footer>
+            <footer-links>
+                <footer-link href="/#">Link</footer-link>
+                <footer-link href="/#grid">Link</footer-link>
+            </footer-links>
+            <footer-text>{{copyright}}</footer-text>
+        </footer>
+        <div slot="footer">
+            <router-link to="/">
+                <div class="back-btn">返回</div>
+            </router-link>
+        </div>
+    </page>
+
+</div>
+</template>
+<script>
+import Page from '../../Page';
+import { Link } from 'san-router';
+import { Footer, FooterLink, FooterLinks, FooterText } from '../../../src/index';
+
+export default {
+    initData() {
+        return {
+            copyright: 'Copyright © 2017 Baidu EFE'
+        };
+    },
+
+    components: {
+        'router-link': Link,
+        'page': Page,
+        'footer': Footer,
+        'footer-link': FooterLink,
+        'footer-links': FooterLinks,
+        'footer-text': FooterText
+    }
+}
+
+</script>

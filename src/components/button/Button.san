@@ -1,0 +1,23 @@
+<template>
+<button class="weui-btn 
+    {{isSmall ? 'weui-btn_mini' : ''}}
+    {{isPrimary && !isPlain ? 'weui-btn_primary' : ''}}
+    {{isDefault && !isPlain ? 'weui-btn_default' : ''}}
+    {{isWarn ? 'weui-btn_warn' : ''}}
+    {{isDisabled ? 'weui-btn_disabled' : ''}}
+    {{isPrimary && isPlain ? 'weui-btn_plain-primary' : ''}}
+    {{isDefault && isPlain ? 'weui-btn_plain-default' : ''}}
+    {{isDisabled && isPlain ? 'weui-btn_plain-disabled' : ''}}"
+    on-click="clicker"
+>
+    <slot></slot>
+</button>
+</template>
+
+<script>
+    export default {
+        clicker: function () {
+            this.fire('click');
+        }
+    }
+</script>

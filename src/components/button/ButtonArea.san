@@ -1,0 +1,5 @@
+<template>
+<div class="weui-btn-area {{isHorizontal ? 'weui-btn-area_inline' : ''}}">
+    <slot></slot>
+</div>
+</template>

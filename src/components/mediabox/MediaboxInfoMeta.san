@@ -1,0 +1,6 @@
+<template>
+<li class="weui-media-box__info__meta {{isExtra ? 'weui-media-box__info__meta_extra' : ''}}"
+>
+    <slot></slot>
+</li>
+</template>

@@ -1,0 +1,5 @@
+<template>
+<a class="weui-panel__ft" href="{{href || 'javascript:;'}}">
+    <slot></slot>
+</a>
+</template>

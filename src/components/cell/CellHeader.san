@@ -1,0 +1,5 @@
+<template>
+<div class="weui-cell__hd {{isPrimary ? 'weui-cell_primary' : ''}}">
+    <slot></slot>
+</div>
+</template>

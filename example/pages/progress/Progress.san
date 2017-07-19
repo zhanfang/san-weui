@@ -1,0 +1,61 @@
+<template>
+<div>
+    <page title="Progress" subTitle="进度条" isSpacing>
+        <progress progress="{{isUploading ? value : 0}}" hasCancelButton></progress>
+        <br>
+        <progress progress="{{isUploading ? value : 40}}" hasCancelButton></progress>
+        <br>
+        <progress progress="{{isUploading ? value : 80}}" hasCancelButton></progress>
+        <br>
+        <btn isPrimary on-click="upload">上传</btn>
+    </page>
+</div>
+</template>
+
+<script>
+import Page from '../../Page';
+import { Progress, Button } from '../../../src/index.js';
+
+export default {
+    components: {
+        'page': Page,
+        'progress': Progress,
+        'btn': Button
+    },
+    initData: function () {
+        return {
+            isUploading: false,
+            value: 0,
+            timer: null
+        };
+    },
+    upload: function () {
+        const isUploading = this.data.get('isUploading')
+        this.data.set('isUploading', !isUploading);
+        if (isUploading) {
+            return;
+        }
+        this.addValue();
+    },
+    addValue: function () {
+        const isUploading = this.data.get('isUploading');
+        
+        if (!isUploading) {
+            return;
+        }
+
+        let value = this.data.get('value');
+        if (value >= 100){
+            value = -1;
+        }
+        value = value + 1;
+        this.data.set('value', value);
+
+        let timer = setTimeout(this.addValue.bind(this), 20);
+        this.data.set('timer', timer);
+    },
+    detached: function () {
+        this.data.set('timer', null);
+    }
+}
+</script>

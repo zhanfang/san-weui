@@ -1,0 +1,52 @@
+<template>
+<div>
+    <page title="Button" subTitle="按钮" isSpacing>
+        <btn isPrimary>Normal</btn>
+        <btn isPrimary isDisabled>Disabled</btn>
+        <btn-area>
+            <btn isDefault>Secondary Normal</btn>
+            <btn isDefault isDisabled disabled>Secondary Disabled</btn>
+        </btn-area>
+        <btn-area isHorizontal>
+            <btn isWarn>Warn Normal</btn>
+            <btn isWarn isDisabled>Disabled</btn>
+        </btn-area>
+        <div class="button-sp-area">
+            <btn isPlain isPrimary>Button</btn>
+            <btn isPlain isPrimary isDisabled>Button</btn>
+            <btn isPlain isDefault>Button</btn>
+            <btn isPrimary isSmall>Mini</btn>
+            <btn isDefault isSmall>Mini</btn>
+            <btn isWarn isSmall>Mini</btn>
+        </div>
+        <div slot="footer">
+            <router-link to="/">
+                <div class="back-btn">返回</div>
+            </router-link>
+        </div>
+    </page>
+</div>
+</template>
+
+<script>
+import { Link } from 'san-router';
+import Page from '../../Page';
+import { Button, ButtonArea } from '../../../src/index';
+
+export default {
+    components: {
+        'router-link': Link,
+        'page': Page,
+        'btn': Button,
+        'btn-area': ButtonArea
+    }
+}
+</script>
+
+<style>
+.button-sp-area {
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 60%;
+}
+</style>

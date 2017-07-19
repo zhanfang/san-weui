@@ -1,0 +1,5 @@
+<template>
+<a class="weui-footer__link" href="{{href || 'javascript:;'}}">
+    <slot></slot>
+</a>
+</template>

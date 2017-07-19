@@ -1,12 +1,56 @@
 <template>
 <section>
-    <page class="wx-page" title="San-WeUI" subTitle="WeUI Components build with San">
-        <ul>
-            <li><router-link to='/article'> article </router-link></li>
-            <li><router-link to='/flex'> flex </router-link></li>
-            <li><router-link to='/icons'> Icons </router-link></li>
-            <li><router-link to='/grid'> Grid </router-link></li>
-        </ul>
+    <page class="wx-page" isSpacing title="San-WeUI" subTitle="WeUI Components build with San">
+        <cells class="wx-links">
+            <router-link to="/article">
+                <cell isAccess>
+                    <cell-body>Article</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/flex">
+                <cell isAccess>
+                    <cell-body>Flex</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/grid">
+                <cell isAccess>
+                    <cell-body>Grid</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/footer">
+                <cell isAccess>
+                    <cell-body>Footer</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/panel">
+                <cell isAccess>
+                    <cell-body>Panel</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/icons">
+                <cell isAccess>
+                    <cell-body>Icons</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/progress">
+                <cell isAccess>
+                    <cell-body>Progress</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/button">
+                <cell isAccess>
+                    <cell-body>Button</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+        </cells>
     </page>
 </section>
 </template>
@@ -15,11 +59,16 @@
 
 import { Link } from 'san-router'
 import Page from './Page';
+import { Cells, Cell, CellBody, CellFooter } from '../src/index.js';
 
 export default {
     components: {
         'router-link': Link,
-        'page': Page
+        'page': Page,
+        'cells': Cells,
+        'cell': Cell,
+        'cell-body': CellBody,
+        'cell-footer': CellFooter
     },
 
     route: function () {
@@ -31,15 +80,5 @@ export default {
 </script>
 
 <style>
-    ul {
-        list-style: none;
-    }
-    li {
-        background-color: #ebebeb;
-        height: 2.3em;
-        line-height: 2.3em;
-        text-align: center;
-        margin: 5px;
-        color: #999;
-    }
+
 </style>

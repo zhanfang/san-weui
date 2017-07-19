@@ -1,0 +1,5 @@
+<template>
+<div class="weui-cell {{isAccess ? 'weui-cell_access' : ''}} {{isLink ? 'weui-cell_link' : ''}}">
+    <slot></slot>
+</div>
+</template>
