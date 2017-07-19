@@ -21,8 +21,16 @@ import {
     MediaboxImg
 } from './components/mediabox';
 import { Cell, CellHeader, CellBody, CellFooter, Cells, CellsTips, CellsTitle } from './components/cell';
-import Progress from './components/progress'
-import { Button, ButtonArea } from './components/button'
+import Progress from './components/progress';
+import { Button, ButtonArea, ButtonPreview } from './components/button';
+import {
+    Preview,
+    PreviewHeader,
+    PreviewBody,
+    PreviewFooter,
+    PreviewItem
+} from './components/preview';
+import Badge from './components/badge'
 
 const Version  = '0.0.2';
 // console.log(Article);
@@ -63,5 +71,12 @@ export {
     CellsTitle,
     Progress,
     Button,
-    ButtonArea
+    ButtonArea,
+    ButtonPreview,
+    Preview,
+    PreviewHeader,
+    PreviewBody,
+    PreviewFooter,
+    PreviewItem,
+    Badge
 };

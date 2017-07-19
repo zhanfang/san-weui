@@ -50,6 +50,18 @@
                     <cell-footer></cell-footer>
                 </cell>
             </router-link>
+            <router-link to="/preview">
+                <cell isAccess>
+                    <cell-body>Preview</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/badge">
+                <cell isAccess>
+                    <cell-body>Badge</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
         </cells>
     </page>
 </section>

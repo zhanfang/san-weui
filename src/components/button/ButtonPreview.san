@@ -1,0 +1,8 @@
+<template>
+<a href="javascript:void(0);" class="weui-form-preview__btn 
+    {{isPrimary ? 'weui-form-preview__btn_primary': ''}}
+    {{!isPrimary ? 'weui-form-preview__btn_default': ''}}"
+>
+    <slot></slot>
+</a>
+</template>

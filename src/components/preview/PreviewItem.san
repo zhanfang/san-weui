@@ -1,0 +1,6 @@
+<template>
+<div class="weui-form-preview__item">
+    <label class="weui-form-preview__label">{{ label }}</label>
+    <em class="weui-form-preview__value">{{ value }}</em>
+</div>
+</template>

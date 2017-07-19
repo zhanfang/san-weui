@@ -1,0 +1,5 @@
+<template>
+<span class="weui-badge {{isDot ? 'weui-badge_dot' : ''}}">
+    <slot></slot>
+</span>
+</template>

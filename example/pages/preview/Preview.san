@@ -1,0 +1,52 @@
+<template>
+<div>
+    <page title="Preview" subTitle="表单预览">
+        <preview s-for="item, index in list">
+            <preview-header>
+                <preview-item label="Total" value="$100.0"></preview-item>
+            </preview-header>
+            <preview-body>
+                <preview-item label="Product" value="name"></preview-item>
+                <preview-item label="Description" value="Product Description"></preview-item>
+                <preview-item label="Details" value="Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. "></preview-item>
+            </preview-body>
+            <preview-footer s-if="index == 0">
+                <btn-preview isPrimary>Action</btn-preview>
+            </preview-footer>
+            <preview-footer s-else>
+                <btn-preview>Action</btn-preview>
+                <btn-preview isPrimary>Action</btn-preview>
+            </preview-footer>
+        </preview>
+        <div slot="footer">
+            <router-link to="/">
+                <div class="back-btn">返回</div>
+            </router-link>
+        </div>
+    </page>
+</div>
+</template>
+
+<script>
+import { Link } from 'san-router';
+import Page from '../../Page';
+import { Preview, PreviewHeader, PreviewBody, PreviewFooter, PreviewItem, ButtonPreview } from '../../../src/index';
+
+export default {
+    components: {
+        'router-link': Link,
+        'page': Page,
+        'preview': Preview,
+        'preview-header': PreviewHeader,
+        'preview-body': PreviewBody,
+        'preview-footer': PreviewFooter,
+        'preview-item': PreviewItem,
+        'btn-preview': ButtonPreview
+    },
+    initData: function () {
+        return {
+            list: [1, 2]
+        };
+    }
+}
+</script>

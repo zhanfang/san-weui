@@ -1,0 +1,5 @@
+<template>
+<div class="weui-form-preview__ft">
+    <slot></slot>
+</div>
+</template>
