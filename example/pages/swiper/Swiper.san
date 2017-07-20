@@ -1,0 +1,75 @@
+<template>
+<div>
+    <page title="Swiper" subTitle="轮播">
+        <cells-title>Horizontal</cells-title>
+        <swiper direction="horizontal" height="150" speed="300">
+            <div class="swiper-page">
+                <p>page1</p>
+            </div>
+            <div class="swiper-page">
+                <p>page2</p>
+            </div>
+            <div class="swiper-page">
+                <p>page3</p>
+            </div>
+            <div class="swiper-page">
+                <p>page4</p>
+            </div>
+        </swiper>
+        <cells-title>Vertical</cells-title>
+        <swiper direction="vertical" height="150" speed="300">
+            <div class="swiper-page">
+                <p>page1</p>
+            </div>
+            <div class="swiper-page">
+                <p>page2</p>
+            </div>
+            <div class="swiper-page">
+                <p>page3</p>
+            </div>
+            <div class="swiper-page">
+                <p>page4</p>
+            </div>
+        </swiper>
+    </page>
+</div>
+</template>
+
+<script>
+import Page from '../../Page';
+import { Swiper, CellsTitle } from '../../../src/index';
+
+export default {
+    components: {
+        'page': Page,
+        'swiper': Swiper,
+        'cells-title': CellsTitle
+    },
+    initData: function () {
+        return {
+            currentIndex: 0
+        };
+    }
+}
+</script>
+
+<style lang="less">
+.swiper-page {
+    font-size: 16px;
+    p {
+        text-align: center;
+    }
+    &:nth-of-type(1) {
+        background: red;
+    }
+    &:nth-of-type(2) {
+        background: blue;
+    }
+    &:nth-of-type(3) {
+        background: green;
+    }
+    &:nth-of-type(4) {
+        background: yellow;
+    }
+}
+</style>

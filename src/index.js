@@ -30,7 +30,9 @@ import {
     PreviewFooter,
     PreviewItem
 } from './components/preview';
-import Badge from './components/badge'
+import Badge from './components/badge';
+import Loadmore from './components/loadmore';
+import Swiper from './components/swiper';
 
 const Version  = '0.0.2';
 // console.log(Article);
@@ -78,5 +80,7 @@ export {
     PreviewBody,
     PreviewFooter,
     PreviewItem,
-    Badge
+    Badge,
+    Loadmore,
+    Swiper
 };

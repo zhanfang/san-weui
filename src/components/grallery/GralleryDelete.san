@@ -1,0 +1,15 @@
+<template>
+<a class="weui-gallery__del" href="javascript:void(0);">
+    <icon value="delete" class="weui-icon_gallery-delete"></icon>
+</a>
+</template>
+
+<script>
+import Icon from '../icon'
+
+export default {
+    components: {
+        'icon': Icon
+    }
+}
+</script>

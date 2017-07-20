@@ -16,6 +16,8 @@ import Progress from './pages/progress/Progress';
 import Button from './pages/button/Button';
 import Preview from './pages/preview/Preview';
 import Badge from './pages/badge/Badge';
+import Loadmore from './pages/loadmore/Loadmore';
+import Swiper from './pages/swiper/Swiper';
 
 import {router} from 'san-router';
 
@@ -30,6 +32,8 @@ router.add({rule: '/progress', Component: Progress, target: '#container'});
 router.add({rule: '/button', Component: Button, target: '#container'});
 router.add({rule: '/preview', Component: Preview, target: '#container'});
 router.add({rule: '/badge', Component: Badge, target: '#container'});
+router.add({rule: '/loadmore', Component: Loadmore, target: '#container'});
+router.add({rule: '/swiper', Component: Swiper, target: '#container'});
 
 // start
 router.start();

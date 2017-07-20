@@ -62,6 +62,18 @@
                     <cell-footer></cell-footer>
                 </cell>
             </router-link>
+            <router-link to="/loadmore">
+                <cell isAccess>
+                    <cell-body>Loadmore</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
+            <router-link to="/swiper">
+                <cell isAccess>
+                    <cell-body>Swiper</cell-body>
+                    <cell-footer></cell-footer>
+                </cell>
+            </router-link>
         </cells>
     </page>
 </section>

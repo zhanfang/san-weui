@@ -1,0 +1,154 @@
+<template>
+<div 
+    class="{{cls}}" 
+    on-touchstart="onTouchStart($event)" 
+    style="
+        height: {{height ? height + 'px' : '100%'}};
+        width: {{width ? width + 'px' : '100%'}};
+    "
+>
+    <div 
+        class="react-weui-swiper__wrapper"
+        style="
+            height: {{direction === 'horizontal' ? wrapperH + 'px' : slideEls.length * wrapperH + 'px'}};
+            width: {{direction === 'horizontal' ? slideEls.length * wrapperW + 'px': wrapperW + 'px'}};
+            transform: translate3d({{direction === 'horizontal' ? translate + 'px, 0, 0' : '0, ' + translate + 'px, 0'}});
+            transition: all {{speed}}ms ease;
+        "
+    >
+        <slot></slot>
+    </div>
+    <div class="react-weui-swiper__pagination" s-if="indicators">
+        <span 
+            class="react-weui-swiper__pagination-bullet
+            {{ index === currentIndex ? 'active' : '' }}" 
+            s-for="slide, index in slideEls"
+            on-click="paginationClick($event, index)"
+        >
+        </span>
+    </div>
+</div>
+</template>
+
+<script>
+import classNames from 'classnames';
+
+export default {
+    initData: function () {
+        return {
+            wrapperW: 0,
+            wrapperH: 0,
+            currentIndex: 0,
+            direction: 'horizontal',
+            indicators: true,
+            slideEls: [],
+            translate: 0,
+            ogTranslate: 0
+        };
+    },
+    attached: function () {
+        const el = this.el;
+        const slideEls = [].map.call(
+            el.getElementsByClassName('react-weui-swiper__wrapper')[0].children, 
+            child => {
+                const direction = this.data.get('direction');
+                if (direction === 'horizontal') {
+                    child.style.display = 'inline-block';
+                }
+                else {
+                    child.style.display = 'block';
+                }
+                child.style.width = el.offsetWidth + 'px';
+                child.style.height = el.offsetHeight + 'px';
+                return child;
+            }
+        );
+        this.data.set('slideEls', slideEls);
+        this.data.set('wrapperW', el.offsetWidth);
+        this.data.set('wrapperH', el.offsetHeight);
+    },
+    computed: {
+        cls: function () {
+            const direction = this.data.get('direction');
+            const cls = classNames(
+                'react-weui-swiper__container',
+                {
+                    'react-weui-swiper__container-horizontal': direction === 'horizontal',
+                    'react-weui-swiper__container-vertical': direction === 'vertical',
+                }
+            );
+            return cls;
+        },
+        translate: function () {
+            let translate;
+            const direction = this.data.get('direction');
+            if (direction === 'horizontal') {
+                return -(this.data.get('currentIndex') * this.data.get('wrapperW') + this.data.get('ogTranslate'));
+            }
+            return -(this.data.get('currentIndex') * this.data.get('wrapperH') + this.data.get('ogTranslate'));
+        }
+    },
+    paginationClick: function (e, index) {
+        e.preventDefault();
+        this.data.set('currentIndex', index);
+    },
+    onTouchStart: function (e) {
+
+    }
+}
+</script>
+
+<style lang="less">
+.react-weui-swiper {
+    &__container {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__wrapper {
+        overflow: hidden;
+        font-size: 0;
+    }
+
+    &__pagination {
+        position: absolute;
+        text-align: center;
+        transition: all .3s;
+        z-index: 10;
+
+        &-bullet {
+            border-radius: 100%;
+            background: #eee;
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+        }
+
+        &-bullet.active {
+            background: #1AAD19;
+        }
+    }
+
+    &__container&__container-horizontal &__pagination{
+        bottom: 10px;
+        width: 100%;
+
+        &-bullet {
+            margin: 0 5px;
+        }
+    }
+
+    &__container&__container-vertical &__pagination{
+        right: 10px;
+        top: 50%;
+        transform: translate3d(0,-50%,0);
+
+        &-bullet {
+            margin: 5px 0;
+            display: block;
+        }
+    }
+}
+</style>

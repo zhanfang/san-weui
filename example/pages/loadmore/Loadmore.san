@@ -1,0 +1,21 @@
+<template>
+<div>
+    <page title="Loadmore" subTitle="加载更多" isSpacing>
+        <loadmore isLoading>Loading</loadmore>
+        <loadmore isLine>No data</loadmore>
+        <loadmore isDot isLine></loadmore>
+    </page>
+</div>
+</template>
+
+<script>
+import Page from '../../Page';
+import { Loadmore } from '../../../src/index';
+
+export default {
+    components: {
+        'page': Page,
+        'loadmore': Loadmore
+    }
+}
+</script>
